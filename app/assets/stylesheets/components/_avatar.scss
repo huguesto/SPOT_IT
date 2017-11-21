@@ -1,3 +1,7 @@
+.avatars {
+  display: flex;
+  justify-content: flex-start;
+}
 *,*::after,*::before {
   box-sizing:inherit;
 }
@@ -6,13 +10,11 @@ html,body{background:#ddd;box-sizing:border-box;}
   width:250px;
   height:250px;
   border-radius:45px;
-  background:#fff;
-  margin:50px auto;
+  background:transparent;
+  // margin:50px auto;
   padding:25px;
   position:relative;
   text-align:center;
-  box-shadow:0 1px 3px rgba(0,0,0,.12)
-
 }
 .icon:before {
   content:"";
