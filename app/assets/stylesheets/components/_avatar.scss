@@ -27,7 +27,7 @@ html,body{background:#ddd;box-sizing:border-box;}
   animation: rot 2s linear infinite;
 }
 .circle {
-  background:#fff;
+  background-image: url(https://kitt.lewagon.com/placeholder/users/ssaunier);
   width:184*0.2px;
   height:184*0.2px;
   border-radius:50%;
@@ -35,7 +35,7 @@ html,body{background:#ddd;box-sizing:border-box;}
   left:50%;
   top:50%;
   margin:-92*0.2px -92*0.2px;
-  animation: scl 5s linear infinite;
+  // animation: scl 5s linear infinite;
 }
 
 @keyframes rot {
