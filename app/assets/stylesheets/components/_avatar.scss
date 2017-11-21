@@ -1,0 +1,50 @@
+.avatars {
+  display: flex;
+  justify-content: flex-start;
+}
+*,*::after,*::before {
+  box-sizing:inherit;
+}
+html,body{background:#ddd;box-sizing:border-box;}
+.icon {
+  width:250px;
+  height:250px;
+  border-radius:45px;
+  background:transparent;
+  // margin:50px auto;
+  padding:25px;
+  position:relative;
+  text-align:center;
+}
+.icon:before {
+  content:"";
+  display:block;
+  width:200px;
+  height:200px;
+  background-image:linear-gradient(to right,#ef4dbc,#bc4bfd,#5c9cfe,#24cffb);
+  border-radius:50%;
+  animation: rot 2s linear infinite;
+}
+.circle {
+  background:#fff;
+  width:184px;
+  height:184px;
+  border-radius:50%;
+  position:absolute;
+  left:50%;
+  top:50%;
+  margin:-92px -92px;
+  animation: scl 5s linear infinite;
+}
+
+@keyframes rot {
+  0% {transform:rotate(0deg)}
+  100% {transform:rotate(360deg)}
+
+}
+@keyframes scl {
+  0% {transform:scale(.96)}
+  50% {transform:scale(1)}
+  100% {transform:scale(.96)}
+
+}
