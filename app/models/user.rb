@@ -6,5 +6,5 @@ class User < ApplicationRecord
   has_many :spots
   has_many :favorites
 
-  validates :email, presence :true, uniqueness :true
+  validates :email, presence: true, uniqueness: true
 end
