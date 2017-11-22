@@ -7,6 +7,23 @@
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        $(".fa-chevron-up").click(function(){
+            $(".form-hidden").slideUp(300);
+            $(".navbar-wagon").animate({
+              height: "70px"
+            }, 150);
+        });
+        $(".fa-chevron-down").click(function(){
+            $(".form-hidden").slideDown(300);
+            $(".navbar-wagon").animate({
+              height: "140px"
+            }, 150);
+        });
+    });
+    </script>
   </head>
   <body>
     <%= render 'shared/navbar' %>
