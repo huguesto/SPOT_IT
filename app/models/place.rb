@@ -6,5 +6,7 @@ class Place < ApplicationRecord
 
     validates :name, presence: true
     validates :address, presence: true, uniqueness: true
+    geocoded_by :address
+    after_validation :geocode
 
 end
