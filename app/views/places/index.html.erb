@@ -1,5 +1,7 @@
 <div id="map" style="width: 100%; height: 600px;"></div>
 
+<div id="place-show"></div>
+
 <% content_for(:after_js) do %>
   <script>
     var map = new google.maps.Map(document.getElementById('map'), {
@@ -27,24 +29,32 @@
           success: function(markers_data) {
             var handler = Gmaps.build('Google');
             handler.buildMap({ internal: { id: 'map' } }, function() {
-              markers = handler.addMarkers(markers_data);
-              handler.bounds.extendWith(markers);
+              // markers = handler.addMarkers(markers_data);
+              Gmaps.store = {} // Initialize storage
+              Gmaps.store.markers = markers_data.map(function(m) {
+                marker = handler.addMarker(m);
+                marker.serviceObject.set('place_url', m.place_url); // You can add other attributes using set
+                google.maps.event.addListener(marker.serviceObject, 'click', function () {
+                  console.log(this);
+                  $.ajax({
+                    method: "GET",
+                    url: this.place_url,
+                    success: function(place_html){
+                      $('#place-show').html(place_html);
+                    }
+                  })
+                });
+                return marker;
+              });
+
+
+              handler.bounds.extendWith(Gmaps.store.markers);
               handler.fitMapToBounds();
-              if (markers.length == 0) {
+              if (Gmaps.store.markers.length == 0) {
                 handler.getMap().setZoom(2);
-              } else if (markers.length == 1) {
+              } else if (Gmaps.store.markers.length == 1) {
                 handler.getMap().setZoom(14);
               }
-
-              markers.forEach(function(marker) {
-                console.log(marker)
-                google.maps.event.addListener(marker, 'click', function () {
-                   // do something with this marker ...
-                   console.log("clicked on marker")
-                   this.setTitle('I am clicked');
-                   console.log(this.place_id)
-                });
-              });
             });
           }
         })

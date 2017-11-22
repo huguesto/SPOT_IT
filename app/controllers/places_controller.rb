@@ -10,6 +10,8 @@ class PlacesController < ApplicationController
   end
 
   def show
+    @place = Place.find(params[:id])
+    render layout: false
   end
 
 
@@ -20,8 +22,7 @@ class PlacesController < ApplicationController
         {
           lat: place.latitude,
           lng: place.longitude,
-          place_id: place_path(place)
-          # infowindow: render_to_string("places/_infowindow", locals: { place: place }, layout: false)
+          place_url: place_path(place)
         }
       end
 
