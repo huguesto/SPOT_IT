@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
   mount Attachinary::Engine => "/attachinary"
   devise_for :users
+
   root to: 'places#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :places, only: [:index, :show] do
-    resources :spots, only: [:index, :new, :create]
+  resources :places, only: [:show] do
+    collection do
+      get '/filter', to: "places#filter" 
+    end
+    resources :spots, only: [:new, :create]
     resources :favorites, only: [:create]
   end
+  resources :spots, only: [:index]
   resources :favorites, only: [:index]
 end

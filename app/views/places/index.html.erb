@@ -1,6 +1,55 @@
 <div id="map" style="width: 100%; height: 600px;"></div>
 
-
 <% content_for(:after_js) do %>
-  <%= render 'map' %>
-<% end %> 
+  <script>
+    var map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 48.8583701, lng: 2.2922926},
+      zoom: 15
+    });
+
+    // Try HTML5 geolocation.
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+        map.setCenter(pos);
+
+        // va me chercher les markers à 5 kil de position (lat lng)
+        $.ajax({
+          method: "GET",
+          url: "/places/filter",
+          data: {
+            lat: pos.lat,
+            lng: pos.lng
+          },
+          success: function(markers_data) {
+            var handler = Gmaps.build('Google');
+            handler.buildMap({ internal: { id: 'map' } }, function() {
+              markers = handler.addMarkers(markers_data);
+              handler.bounds.extendWith(markers);
+              handler.fitMapToBounds();
+              if (markers.length == 0) {
+                handler.getMap().setZoom(2);
+              } else if (markers.length == 1) {
+                handler.getMap().setZoom(14);
+              }
+
+              markers.forEach(function(marker) {
+                console.log(marker)
+                google.maps.event.addListener(marker, 'click', function () {
+                   // do something with this marker ...
+                   console.log("clicked on marker")
+                   this.setTitle('I am clicked');
+                   console.log(this.place_id)
+                });
+              });
+            });
+          }
+        })
+      });
+    }
+  </script>
+
+<% end %>

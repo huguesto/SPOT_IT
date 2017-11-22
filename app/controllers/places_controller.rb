@@ -5,11 +5,27 @@ class PlacesController < ApplicationController
     @hash = Gmaps4rails.build_markers(@places) do |place, marker|
       marker.lat place.latitude
       marker.lng place.longitude
-      marker.infowindow render_to_string(partial: '/components/map_box', locals: { place: place })
+      # marker.infowindow render_to_string(partial: '/components/map_box', locals: { place: place })
     end
   end
 
   def show
+  end
 
+
+
+  def filter
+    if params[:lat] and params[:lng]
+      places = Place.near([params[:lat], params[:lng]], 5).map do |place|
+        {
+          lat: place.latitude,
+          lng: place.longitude,
+          place_id: place_path(place)
+          # infowindow: render_to_string("places/_infowindow", locals: { place: place }, layout: false)
+        }
+      end
+
+      render json: places
+    end
   end
 end
