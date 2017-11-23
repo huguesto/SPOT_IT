@@ -29,4 +29,12 @@ class PlacesController < ApplicationController
       render json: places
     end
   end
+
+  def nearby
+    gps = params[:lat] + "," + params[:lng]
+    category = params[:category]
+    url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + gps + "&type=" + category + "&rankby=distance&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
+    response = RestClient.get(url)
+    render json: response.body
+  end
 end

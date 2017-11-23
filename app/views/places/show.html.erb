@@ -1,5 +1,8 @@
 <h1><%= @place.name %></h1>
-
+<% @place.spots.each do |spot| %>
+  <%= cl_image_tag spot.photo.path, width: 30 if spot.photo %>
+  <%= spot.comment %>
+<% end %>
 
 <!-- #Pour chaque spot qui ont cette place_id
 #display la photo prise par l'user qui a crée ce spot
