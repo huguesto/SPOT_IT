@@ -1,6 +1,5 @@
 class Category < ApplicationRecord
+  has_many :places
 
   validates :name, presence: true
-
-  has_many :places
 end
