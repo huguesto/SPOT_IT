@@ -5,11 +5,10 @@ Rails.application.routes.draw do
   root to: 'places#index'
   resources :places, only: [:show] do
     collection do
-      get '/filter', to: "places#filter" 
+      get '/filter', to: "places#filter"
     end
-    resources :spots, only: [:new, :create]
     resources :favorites, only: [:create]
   end
-  resources :spots, only: [:index]
+  resources :spots, only: [:index, :new, :create]
   resources :favorites, only: [:index]
 end

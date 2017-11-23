@@ -1,5 +1,6 @@
 Place.destroy_all
 Category.destroy_all
+Spot.destroy_all
 
 
 bar = Category.create!(name: "Bar")
