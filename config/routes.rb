@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :places, only: [:show] do
     collection do
       get '/filter', to: "places#filter"
+      get '/nearby', to: "places#nearby"
     end
     resources :favorites, only: [:create]
   end
