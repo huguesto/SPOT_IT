@@ -1,8 +1,5 @@
 // Import your components CSS files here.
 @import "alert";
 @import "navbar";
+@import "map";
 @import "spot_form";
-
-#map {
-  z-index: 0;
-}

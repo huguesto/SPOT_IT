@@ -6,7 +6,17 @@ bar = Category.create!(name: "Bar")
 resto = Category.create!(name: "Restaurant")
 art = Category.create!(name: "Art")
 
-wagon = Place.create!(name: "Le Wagon Bordeaux", category: bar, address: "107 cours Balguerie Stuttenberg 33300")
-pizza_nico = Place.create!(name: "Pizz'a Nico", category: art, address: "108 cours Balguerie Stuttenberg 33300")
-# pastel = Place.create!(name: "Pastel", category: resto, address: "2 Quai des Chartrons 33300")
-yamato = Place.create!(name: "Yamato", category: resto, address: "20 Allée du 7ème art 33400 Talence")
+
+
+tapasserie = Place.create!(name: "La Tapasserie", category: bar, address: "7 Rue Rode, 33000")
+zytho = Place.create!(name: "Le Zytho", category: bar, address: "28 Rue Latour, 33000 Bordeaux")
+apollo = Place.create!(name: "L'Apollo", category: bar, address: "19 Place Fernand Lafargue, 33000")
+
+pastel = Place.create!(name: "Pastel", category: resto, address: "2 Quai des Chartrons 33300")
+bocca = Place.create!(name: "Epicerie la Bocca", category: resto, address: "75 Rue Notre Dame, 33000")
+boucher = Place.create!(name: "Le Boucher", category: resto, address: "35 Rue Borie, 33300")
+finger = Place.create!(name: "Finger Food", category: resto, address: "105 Quai des Chartrons, 33300")
+fufu = Place.create!(name: "Fufu cours Portal", category: resto, address: "71 Cours Portal, 33300")
+pheno = Place.create!(name: "Les Phénomènes", category: resto, address: "34 Cours du Médoc, 33300 ")
+
+capc = Place.create!(name: "CAPC musée d'art contemporain de Bordeaux", category: art, address: "7 Rue Ferrere, 33000 ")

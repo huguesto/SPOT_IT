@@ -1,12 +1,15 @@
 class PlacesController < ApplicationController
   def index
-    @places = Place.all
+    # @places = Place.all
     # Place.near([current_user.latitude, current_user.longitude], 5, units: :km)
-    @hash = Gmaps4rails.build_markers(@places) do |place, marker|
-      marker.lat place.latitude
-      marker.lng place.longitude
+    # @hash = Gmaps4rails.build_markers(@places) do |place, marker|
+    #   marker.lat place.latitude
+    #   marker.lng place.longitude
       # marker.infowindow render_to_string(partial: '/components/map_box', locals: { place: place })
-    end
+
+      #
+
+    # end
   end
 
   def show
@@ -14,10 +17,8 @@ class PlacesController < ApplicationController
     render layout: false
   end
 
-
-
   def filter
-    if params[:lat] and params[:lng]
+    if params[:lat] && params[:lng]
       places = Place.near([params[:lat], params[:lng]], 5).map do |place|
         {
           lat: place.latitude,
