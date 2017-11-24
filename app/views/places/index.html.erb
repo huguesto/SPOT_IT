@@ -1,6 +1,12 @@
-<div id="map"></div>
 
-<div id="place-show"></div>
+<% content_for(:body_class, "map")%>
+
+<div class="map-wrapper">
+  <div id="map"></div>
+  <div id="place-show" class="place-show"></div>
+</div>
+
+
 
 <% content_for(:after_js) do %>
   <script>
@@ -11,12 +17,15 @@
 
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
+      console.log("coucou")
       navigator.geolocation.getCurrentPosition(function(position) {
         var pos = {
           lat: position.coords.latitude,
           lng: position.coords.longitude
         };
+        console.log(pos)
         map.setCenter(pos);
+
 
         // va me chercher les markers à 5 kil de position (lat lng)
         $.ajax({
@@ -41,6 +50,10 @@
                     url: this.place_url,
                     success: function(place_html){
                       $('#place-show').html(place_html);
+                      $('.place-show').toggleClass('place-show-open');
+                      $(".place-show-toggle").click(function(){
+                        $('.place-show').toggleClass('place-show-open');
+                      })
                     }
                   })
                 });
