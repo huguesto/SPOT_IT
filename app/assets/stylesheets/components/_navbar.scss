@@ -107,7 +107,7 @@ input[type="radio"] {
 
 input[type="radio"]:checked + label {
     background: rgb(15, 70, 94);
-    color:rgb(214, 231, 239);
+    color: rgb(214, 231, 239);
 
 }
 
@@ -117,4 +117,11 @@ input[type="radio"]:checked + label {
 
 .right-tab {
   border-left: 2px solid rgb(15, 70, 94);
+}
+
+
+.title {
+  font-family: Shrikhand;
+  color: rgb(214, 231, 239);
+  flex: center;
 }

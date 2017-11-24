@@ -1,14 +1,21 @@
-<div class="spot-form">
-  <%= simple_form_for(@spot) do |f| %>
-    <%= f.input :photo, as: :attachinary, label: false, class: 'btn launch btn-search btn-block'  %>
-    <%= f.input :comment, as: :text, label: 'Add your comment', required: false, class: 'xxx' %>
 
 
-    <select id="current-place" name="spot[place]" class="form-control"></select>
+    <div class="spot-form">
+      <%= simple_form_for(@spot) do |f| %>
+      <label class="text-center fileUpload">
+        <span class="upload btn btn-photo">add a photo</span>
+        <%= f.input :photo, as: :attachinary, label: false, class: 'update'%></p>
+      </label>
 
-    <%= f.submit 'Spot it!', class: 'btn launch btn-search btn-block'%>
-  <% end %>
-</div>
+        <%= f.input :comment, as: :text, label: 'Add your comment', required: false, class: 'xxx' %>
+
+
+        <select id="current-place" name="spot[place]" class="form-control"></select>
+
+        <%= f.submit 'Spot it!', class: 'btn launch btn-search btn-block'%>
+      <% end %>
+    </div>
+
 
 <% content_for(:after_js) do %>
   <script>
