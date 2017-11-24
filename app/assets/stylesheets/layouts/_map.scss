@@ -1,0 +1,14 @@
+.map {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  .map-wrapper {
+    flex-grow: 1;
+    position: relative;
+    overflow: hidden;
+    #map {
+      width: 100%;
+      height: calc(100vh - 45px);
+    }
+  }
+}
