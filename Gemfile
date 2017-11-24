@@ -21,6 +21,7 @@ gem 'uglifier'
 gem 'cloudinary','1.1.7'
 gem 'attachinary', github: 'assembler/attachinary'
 gem 'jquery-fileupload-rails'
+gem "coffee-rails"
 
 group :development, :test do
   gem 'pry-byebug'
@@ -31,7 +32,6 @@ group :development, :test do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-gem "coffee-rails"
 gem "gmaps4rails"
 
 source 'https://rails-assets.org' do

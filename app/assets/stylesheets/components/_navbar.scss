@@ -2,24 +2,24 @@
 .navbar-wagon {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
   background: rgb(137, 181, 201);
-  padding: 10px 30px;
+  padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   z-index: 2;
   position: relative;
 }
-.form-control {
-  background-color: rgb(214, 231, 239);
-  color: rgb(137, 181, 201);
-  border: 0px;
-  padding: 10px;
-}
-
-.form-control::placeholder {
-  color: rgb(137, 181, 201);
-  font-weight: normal;
-  display: flex;
-}
+// .form-control {
+//   background-color: rgb(214, 231, 239);
+//   color: rgb(137, 181, 201);
+//   border: 0px;
+//   padding: 10px;
+// }
+//
+// .form-control::placeholder {
+//   color: rgb(137, 181, 201);
+//   font-weight: normal;
+//   display: flex;
+// }
 
 .category-pick {
   display: flex;
@@ -30,6 +30,7 @@
 
 .fa {
   color: rgb(214, 231, 239);
+  padding-right: 23px;
 }
 
 
@@ -53,6 +54,14 @@
   &.search-open {
     transform: translateY(0);
   }
+}
+.glyphicon-plus {
+  z-index: 1;
+  color: rgb(214, 231, 239);
+}
+.glyphicon-home {
+  z-index: 1;
+  color: rgb(214, 231, 239);
 }
 
 
@@ -98,7 +107,7 @@ input[type="radio"] {
 
 input[type="radio"]:checked + label {
     background: rgb(15, 70, 94);
-    color:rgb(214, 231, 239);
+    color: rgb(214, 231, 239);
 
 }
 
@@ -108,4 +117,11 @@ input[type="radio"]:checked + label {
 
 .right-tab {
   border-left: 2px solid rgb(15, 70, 94);
+}
+
+
+.title {
+  font-family: Shrikhand;
+  color: rgb(214, 231, 239);
+  flex: center;
 }
