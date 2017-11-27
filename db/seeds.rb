@@ -17,6 +17,6 @@ bocca = Place.create!(name: "Epicerie la Bocca", category: resto, address: "75 R
 boucher = Place.create!(name: "Le Boucher", category: resto, address: "35 Rue Borie, 33300")
 finger = Place.create!(name: "Finger Food", category: resto, address: "105 Quai des Chartrons, 33300")
 fufu = Place.create!(name: "Fufu cours Portal", category: resto, address: "71 Cours Portal, 33300")
-pheno = Place.create!(name: "Les Phénomènes", category: resto, address: "34 Cours du Médoc, 33300 ")
+# pheno = Place.create!(name: "Les Phénomènes", category: resto, address: "34 Cours du Médoc, 33300 ")
 
 capc = Place.create!(name: "CAPC musée d'art contemporain de Bordeaux", category: art, address: "7 Rue Ferrere, 33000 ")
