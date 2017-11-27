@@ -1,10 +1,12 @@
+Spot.destroy_all
 Place.destroy_all
 Category.destroy_all
 
 
-bar = Category.create!(name: "Bar")
-resto = Category.create!(name: "Restaurant")
-art = Category.create!(name: "Art")
+
+bar = Category.create!(name: "Bar", slug: "bar")
+resto = Category.create!(name: "Restaurant", slug: "restaurant")
+art = Category.create!(name: "Art", slug: "museum")
 
 
 
