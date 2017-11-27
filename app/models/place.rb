@@ -8,13 +8,14 @@ class Place < ApplicationRecord
   geocoded_by :address
   after_validation :geocode
 
-  def self.create_from_data(place_data)
+  def self.create_from_data(place_data, category_id)
+
     create(
       name: place_data["name"],
       address: place_data["vicinity"],
       latitude: place_data.dig("geometry", "location", "lat"),
       longitude: place_data.dig("geometry", "location", "lng"),
-      category_id: Category.first,
+      category_id: category_id,
       place_id: place_data["place_id"]
     )
   end

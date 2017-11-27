@@ -1,17 +1,9 @@
 function onPlaceChanged() {
   var place = this.getPlace();
-  var components = getAddressComponents(place);
 
   var placeAddress = document.getElementById('user_input_autocomplete_address');
   placeAddress.blur();
-  placeAddress.value = components.address;
-}
-
-function getAddressComponents(place) {
-  if (window.console && typeof console.log === "function") {
-    console.log(place);
-  }
-
+  placeAddress.value = place.formatted_address;
 }
 
 document.addEventListener("DOMContentLoaded", function() {

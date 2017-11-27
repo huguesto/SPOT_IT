@@ -13,7 +13,7 @@ class SpotsController < ApplicationController
     #if place exists ? --> save spot & add the spot to place's show
     #else place doesn't exist --> create new place, add spot
     place_data = JSON.parse(URI.unescape(params[:spot][:place]))
-    place = Place.find_by(place_id: place_data["place_id"]) || Place.create_from_data(place_data)
+    place = Place.find_by(place_id: place_data["place_id"]) || Place.create_from_data(place_data, params.dig(:spot, :category, :id))
     @spot = place.spots.new(spot_params)
     @spot.save
     redirect_to root_path

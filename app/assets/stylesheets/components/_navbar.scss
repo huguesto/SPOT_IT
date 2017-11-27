@@ -8,18 +8,18 @@
   z-index: 2;
   position: relative;
 }
-// .form-control {
-//   background-color: rgb(214, 231, 239);
-//   color: rgb(137, 181, 201);
-//   border: 0px;
-//   padding: 10px;
-// }
-//
-// .form-control::placeholder {
-//   color: rgb(137, 181, 201);
-//   font-weight: normal;
-//   display: flex;
-// }
+ .form-control {
+   background-color: rgb(214, 231, 239);
+   color: rgb(137, 181, 201);
+   border: 0px;
+   padding: 10px;
+ }
+
+ .form-control::placeholder {
+   color: rgb(137, 181, 201);
+   font-weight: normal;
+   display: flex;
+}
 
 .category-pick {
   display: flex;
@@ -48,6 +48,7 @@
   position: absolute;
   width: 100%;
   padding: 20px;
+  top: 45px;
   background: rgb(137, 181, 201);
   transform: translateY(-200%);
   transition: 300ms linear transform;
@@ -121,7 +122,8 @@ input[type="radio"]:checked + label {
 
 
 .title {
-  font-family: Shrikhand;
+  font-family: Lobster Two;
   color: rgb(214, 231, 239);
   flex: center;
+  letter-spacing: 2px;
 }
