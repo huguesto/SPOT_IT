@@ -1,0 +1,33 @@
+var handler = Gmaps.build('Google');
+handler.buildMap({ internal: { id: 'map' } }, function() {
+  markers_data = <%= raw @places.to_json %>
+  Gmaps.store = {} // Initialize storage
+  Gmaps.store.markers = markers_data.map(function(m) {
+    marker = handler.addMarker(m);
+    marker.serviceObject.set('place_url', m.place_url); // You can add other attributes using set
+    google.maps.event.addListener(marker.serviceObject, 'click', function () {
+      console.log(this);
+      $.ajax({
+        method: "GET",
+        url: this.place_url,
+        success: function(place_html){
+          $('#place-show').html(place_html);
+          $('.place-show').toggleClass('place-show-open');
+          $(".place-show-toggle").click(function(){
+            $('.place-show').toggleClass('place-show-open');
+          })
+        }
+      })
+    });
+    return marker;
+  });
+
+
+  handler.bounds.extendWith(Gmaps.store.markers);
+  handler.fitMapToBounds();
+  if (Gmaps.store.markers.length == 0) {
+    handler.getMap().setZoom(2);
+  } else if (Gmaps.store.markers.length == 1) {
+    handler.getMap().setZoom(14);
+  }
+});

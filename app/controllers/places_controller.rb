@@ -19,15 +19,25 @@ class PlacesController < ApplicationController
 
   def filter
     if params[:lat] && params[:lng]
-      places = Place.near([params[:lat], params[:lng]], 5).map do |place|
-        {
-          lat: place.latitude,
-          lng: place.longitude,
-          place_url: place_path(place)
-        }
+      places = Place.near([params[:lat], params[:lng]], 5)
+    elsif params[:search]
+      places = Place.near(params.dig(:search, :address), 5)
+      if params.dig(:search, :choice).present?
+        places = places.where(category_id: params.dig(:search, :choice))
       end
+    end
 
-      render json: places
+    @places = places.map do |place|
+      {
+        lat: place.latitude,
+        lng: place.longitude,
+        place_url: place_path(place)
+      }
+    end
+
+    respond_to do |format|
+      format.json { render json: @places }
+      format.js
     end
   end
 
