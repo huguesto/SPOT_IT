@@ -7,6 +7,9 @@ class User < ApplicationRecord
 
   has_many :spots
   has_many :favorites
+  has_friendship
+
+  after_create :create_friendships
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
@@ -27,5 +30,16 @@ class User < ApplicationRecord
     end
 
     return user
+  end
+
+  def create_friendships
+    graph = Koala::Facebook::API.new(token)
+    facebook_friends = graph.get_connections('me', 'friends')
+
+    facebook_friends.each do |friend_data|
+      other = User.find_by(uid: friend_data["uid"])
+      self.friend_request(other)
+      other.accept_request(self)
+    end
   end
 end
