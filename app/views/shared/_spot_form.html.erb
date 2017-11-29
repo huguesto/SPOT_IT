@@ -14,11 +14,10 @@
           </div>
         <% end %>
         <select id="current-place" name="spot[place]" class="form-control"></select>
-        <%= f.input :comment, placeholder: "Add your comment...", label: false, as: :text, required: false, class: 'xxx' %>  
+        <%= f.input :comment, placeholder: "Add your comment...", label: false, as: :text, required: false, class: 'xxx' %>
         <label class="text-center fileUpload">
           <%= f.input :photo, as: :attachinary, label: false, class: 'update'%>
         </label>
-
         <%= f.submit 'Spot it!', class: 'btn launch btn-search btn-block'%>
       <% end %>
     </div>
@@ -49,7 +48,6 @@
         });
       }
     }
-
 
     $(".spot-form .category-pick input[type='radio']").change(function(){
       var slug = $(this).data('slug');
