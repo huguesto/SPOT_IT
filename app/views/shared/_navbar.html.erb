@@ -9,28 +9,13 @@
     <a href="#" class="search-toggle">
       <i class="fa fa-search"></i>
     </a>
-      <a href="/spots/new">
-        <i class= "glyphicon glyphicon-plus" ></i>
+
+      <a>
+        <i class= "glyphicon glyphicon-plus" data-toggle="modal" data-target="#spotModal"></i>
       </a>
+      <!-- <a data-toggle="modal" href="<%= root_path %>" data-target="#exampleModal">Click me</a> -->
   </div>
-
 </div>
-
-     <!-- <div class="search">
-      <div>
-        <input id="user_input_autocomplete_address" name="user_input_autocomplete_address" class="form-control" placeholder="Address : 107 cours Balguerie etc..">
-      </div>
-      <div class="category-pick">
-        <ul class="tab-group">
-          <li class="tab"><input type="radio" name="choice" id="choice-1" value="Bar"><label class="left-tab" for="choice-1">Bar</label></li>
-          <li class="tab"><input type="radio" name="choice" id="choice-2" value="Food"><label for="choice-2">Food</label></li>
-          <li class="tab"><input type="radio" name="choice" id="choice-3" value="Art"><label class="right-tab" for="choice-3">Art</label></li>
-        </ul>
-      </div>
-      <div>
-        <input type="submit" class="btn launch btn-search btn-block" value="Search">
-      </div>
-    </div> -->
 
  <div class="search">
   <%= form_for :search, method: :get, url: filter_places_path, remote: true do |f| %>
@@ -49,8 +34,21 @@
   <% end %>
 </div>
 
-
-
+<div class="modal fade" id="spotModal" tabindex="-1" role="dialog" aria-labelledby="spotModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="spotModalLabel">Add a new spot !</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= render "shared/spot_form" %>
+      </div>
+  </div>
+  </div>
+</div>
 
     <!-- Include Google Maps JS API -->
     <!-- <script type="text/javascript"

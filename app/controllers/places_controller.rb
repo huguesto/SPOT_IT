@@ -1,15 +1,5 @@
 class PlacesController < ApplicationController
   def index
-    # @places = Place.all
-    # Place.near([current_user.latitude, current_user.longitude], 5, units: :km)
-    # @hash = Gmaps4rails.build_markers(@places) do |place, marker|
-    #   marker.lat place.latitude
-    #   marker.lng place.longitude
-      # marker.infowindow render_to_string(partial: '/components/map_box', locals: { place: place })
-
-      #
-
-    # end
   end
 
   def show
@@ -46,6 +36,13 @@ class PlacesController < ApplicationController
     category = params[:category]
     url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + gps + "&type=" + category + "&rankby=distance&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
     response = RestClient.get(url)
-    render json: response.body
+    nearby_places = response.body
+
+    # @friend_spots = Spot.where(user: current_user.friends, place: Place.near("Bordeaux").map(&:id))
+    # render_to_string the partial of last friends spots in our area
+
+    render json: {
+      nearby_places: nearby_places
+    }
   end
 end

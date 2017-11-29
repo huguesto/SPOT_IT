@@ -2,14 +2,6 @@
 
     <div class="spot-form">
       <%= simple_form_for(@spot) do |f| %>
-      <label class="text-center fileUpload">
-        <span class="upload btn btn-photo">add a photo</span>
-        <%= f.input :photo, as: :attachinary, label: false, class: 'update'%>
-      </label>
-
-        <%= f.input :comment, as: :text, label: 'Add your comment', required: false, class: 'xxx' %>
-
-
         <%= f.fields_for :category do |c| %>
           <div class="category-pick">
             <ul class="tab-group">
@@ -21,10 +13,11 @@
             </ul>
           </div>
         <% end %>
-
-
         <select id="current-place" name="spot[place]" class="form-control"></select>
-
+        <%= f.input :comment, placeholder: "Add your comment...", label: false, as: :text, required: false, class: 'xxx' %>
+        <label class="text-center fileUpload">
+              <%= f.input :photo, as: :attachinary, label: false, class: 'update' %>
+        </label>
         <%= f.submit 'Spot it!', class: 'btn launch btn-search btn-block'%>
       <% end %>
     </div>
