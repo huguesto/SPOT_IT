@@ -1,31 +1,28 @@
-<h1><%= @place.category.name %></h1>
 
-<div id="map-static" style='width: 100%; height: 200px; background-image: url(<%="https://maps.googleapis.com/maps/api/staticmap?center=#{@place.latitude},#{@place.longitude}&zoom=16&size=400x200&key=#{ENV['GOOGLE_API_SERVER_KEY']}"%>);'></div>
-<h2><%= @place.name %></h2>
-<p><%= @place.address %></p>
+   <div class="return-to-map">
+    <h3><%= @place.category.name %></h3>
+    <a href="#" class="place-show-toggle">
+      <i class="fa fa-times fa-lg" aria-hidden="true"></i>
+    </a>
+  </div>
 <div class="row">
   <% if @place.spots.length == 0 %>
   <div class="col-xs-12 col-sm-6 col-md-4 text-center" >
     <p><%= "No spots yet for this place" %></p>
   </div>
   <% else %>
+  <div class="col-xs-6 col-sm-6 col-md-4 text-center sliding" >
     <% @place.spots.each do |spot| %>
-    <%= cl_image_tag spot.photo.path, width:50, height: 50, crop: :fill if spot.photo %>')>
-        <div>
-           <%= spot.comment %>
-          </div>
-        </div>
-      </div>
+    <%= cl_image_tag spot.photo.path, width: 120, height: 100, id: 'style-image', crop: :fill if spot.photo %>
     <% end %>
   <% end %>
-</div>
-<div>
-   <div>
-    <a href="#" class="place-show-toggle">
-      <i class="fa fa-arrow-left" aria-hidden="true"></i>
-    </a>
   </div>
+  </div>
+  <div class="infos">
+<h3><%= @place.name %></h3>
+<p><%= @place.address %></p>
 </div>
+<div id="map-static" style=' width: 100%; height: 150px; background-image: url(<%="https://maps.googleapis.com/maps/api/staticmap?center=#{@place.latitude},#{@place.longitude}&zoom=16&size=400x200&markers=color:blue%7Clabel:%7C#{@place.latitude},#{@place.longitude}&key=#{ENV['GOOGLE_API_SERVER_KEY']}"%>);'></div>
 
 
 
@@ -34,3 +31,5 @@
 #display le commentaire de l'user qui a crée ce spot
 #display le created_at
 ( #display info de l'user avec facebook connect ) -->
+
+
