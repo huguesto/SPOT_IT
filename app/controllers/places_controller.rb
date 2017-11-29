@@ -16,6 +16,12 @@ class PlacesController < ApplicationController
         places = places.where(category_id: params.dig(:search, :choice))
       end
     end
+    if current_user
+      @friend_spots = Spot.where(user: current_user.friends, place: places.map(&:id)).order(created_at: :desc).limit(10)
+      friend_spots_html = render_to_string(partial: "shared/friend_spots", locals: { spots: @friend_spots})
+    else
+      @friend_spots = Spot.where(place: places.map(&:id)).order(created_at: :desc).limit(10)
+    end
 
     @places = places.map do |place|
       {
@@ -26,7 +32,12 @@ class PlacesController < ApplicationController
     end
 
     respond_to do |format|
-      format.json { render json: @places }
+      format.json {
+        render json: {
+          places: @places,
+          friend_spots: friend_spots_html
+        }
+      }
       format.js
     end
   end
@@ -38,11 +49,12 @@ class PlacesController < ApplicationController
     response = RestClient.get(url)
     nearby_places = response.body
 
-    # @friend_spots = Spot.where(user: current_user.friends, place: Place.near("Bordeaux").map(&:id))
-    # render_to_string the partial of last friends spots in our area
+    render json: nearby_places
+  end
 
-    render json: {
-      nearby_places: nearby_places
-    }
+  private
+
+  def friend_spots
+
   end
 end

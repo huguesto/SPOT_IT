@@ -31,3 +31,6 @@ handler.buildMap({ internal: { id: 'map' } }, function() {
     handler.getMap().setZoom(14);
   }
 });
+
+
+$('#friend-spots').html("<%= j render "shared/friend_spots", spots: @friend_spots %>");
