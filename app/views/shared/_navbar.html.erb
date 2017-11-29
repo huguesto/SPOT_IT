@@ -9,11 +9,12 @@
     <a href="#" class="search-toggle">
       <i class="fa fa-search"></i>
     </a>
-      <a href="/spots/new">
-        <i class= "glyphicon glyphicon-plus" ></i>
-      </a>
-  </div>
 
+      <a>
+        <i class= "glyphicon glyphicon-plus" data-toggle="modal" data-target="#spotModal"></i>
+      </a>
+      <!-- <a data-toggle="modal" href="<%= root_path %>" data-target="#exampleModal">Click me</a> -->
+  </div>
 </div>
 
      <!-- <div class="search">
@@ -48,6 +49,23 @@
     <%= f.submit class: 'btn launch btn-search btn-block', value: 'Search' %>
   <% end %>
 </div>
+
+<div class="modal fade" id="spotModal" tabindex="-1" role="dialog" aria-labelledby="spotModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="spotModalLabel">Add a new spot !</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= render "shared/spot_form" %>
+      </div>
+  </div>
+  </div>
+</div>
+
 
 
 

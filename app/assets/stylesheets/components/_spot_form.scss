@@ -1,50 +1,59 @@
-.btn-photo {
-  color: white;
-  padding: 10px 15px;
-  border-radius: 4px;
-  font-weight: bold;
-  background: rgb(7, 70, 92);
-  transition: background 0.3s ease;
-}
-.btn-photo:hover {
-  opacity: 1;
-  background: #3ac162;
-  text-decoration: none;
-  color: white;
+
+.modal-content {
+background-color: rgb(134, 181, 199);
 }
 
+.modal-header {
+  text-align: center;
+  color: rgb(213, 231, 238);
+}
+
+.btn-photo {
+  display: none;
+}
 .fileUpload {
-    position: relative;
-    margin: 60px;
-    background-color: #eaeaea;
-    border: 1px dashed #dddbdb;
-    display: block;
-    margin-bottom: 50px;
+  position: relative;
+  margin-top: 20px;
+  background-color: #eaeaea;
+  border: 1px dashed #dddbdb;
+  display: block;
+  margin-bottom: 20px;
+  height: 120px;
+  background: url(https://focusgroups.org/wp-content/plugins/focusgroups/assets/images/holder-camera.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: rgb(213, 231, 238);
+  background-position: center;
+  cursor: pointer;
   ul {
     list-style-type: none;
     display: flex;
     justify-content: center;
   }
   input {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 0;
-    padding: 0;
-    font-size: 20px;
-    cursor: pointer;
-    opacity: 0;
-    filter: alpha(opacity=0);
+    display: none;
+  }
+  .attachinary_container {
+    z-index: 50;
+    img {
+      width: 120px;
+      height: 120px;
+    }
   }
 }
 
+
+
+
 .attachinary_container {
-  z-index: 50;
+
 }
 
-.spot-form {
-  background-color: rgb(137, 181, 201);
+#current-place {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
+
 
 
 .category-pick label {
