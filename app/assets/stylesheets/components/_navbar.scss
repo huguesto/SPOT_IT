@@ -48,7 +48,7 @@
   position: absolute;
   width: 100%;
   padding: 20px;
-  top: 45px;
+  top: 42px;
   background: rgb(137, 181, 201);
   transform: translateY(-200%);
   transition: 300ms linear transform;
@@ -75,6 +75,7 @@
   width: 100%;
   margin-bottom: 0px;
   padding-top: 5px;
+  padding-bottom: 5px;
   &:after {
     content: "";
     display: table;
