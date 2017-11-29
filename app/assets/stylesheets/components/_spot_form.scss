@@ -39,21 +39,23 @@ background-color: rgb(134, 181, 199);
       width: 120px;
       height: 120px;
     }
+    ul {
+      padding: 0;
+      margin: 0;
+
+    }
+    a {
+      display: none;
+    }
   }
 }
 
 
 
-
-.attachinary_container {
-
-}
-
 #current-place {
   margin-top: 20px;
   margin-bottom: 20px;
 }
-
 
 
 .category-pick label {
