@@ -13,7 +13,7 @@
   <% else %>
   <div class="col-xs-6 col-sm-6 col-md-4 text-center sliding" >
     <% @place.spots.each do |spot| %>
-    <%= cl_image_tag spot.photo.path, width: 120, height: 100, id: 'style-image', crop: :fill if spot.photo %>
+    <%= cl_image_tag spot.photo.path, width: 120, height: 100, effect: "art:daguerre", id: 'style-image', crop: :fill if spot.photo %>
     <% end %>
   <% end %>
   </div>
@@ -31,5 +31,3 @@
 #display le commentaire de l'user qui a crée ce spot
 #display le created_at
 ( #display info de l'user avec facebook connect ) -->
-
-
