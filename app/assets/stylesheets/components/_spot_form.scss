@@ -6,6 +6,11 @@ background-color: rgb(134, 181, 199);
 .modal-header {
   text-align: center;
   color: rgb(213, 231, 238);
+  height: 50%;
+display: flex;
+justify-content: center;
+flex-direction: row;
+
 }
 
 .btn-photo {

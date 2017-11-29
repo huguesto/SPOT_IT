@@ -23,7 +23,7 @@
 
 .category-pick {
   display: flex;
-  background-color: rgb(137, 181, 201);
+  // background-color: rgb(137, 181, 201);
   width: 100%;
 }
 
@@ -127,4 +127,19 @@ input[type="radio"]:checked + label {
   color: rgb(214, 231, 239);
   flex: center;
   letter-spacing: 2px;
+}
+.close {
+  margin-right: -450%;
+
+}
+
+.close-nav {
+  margin-right: -700%;
+}
+
+.topmodal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 }
