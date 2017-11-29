@@ -100,15 +100,12 @@ box-shadow: 0 5px 1px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
 .message-body {
   padding-left: 10px;
   font-size: 13px;
-  color: rgba(0,0,0,0.7);
-}
-.message-body {
   padding-left: 20px;
   color: rgba(0,0,0,0.4);
 }
+
 .message-body strong{
-  color: rgba(0,0,0,0.9);
-  color: rgba(0,0,0,0.9);
+
 }
 .message-body p {
   margin: 6px 0;
@@ -120,4 +117,17 @@ box-shadow: 0 5px 1px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
 .avatar-large {
   width: 50px;
   border-radius: 50%;
+}
+
+.placelink {
+  font-size: 14px;
+
+}
+.placecomment {
+  font-size: 14px;
+
+}
+.placedate {
+  font-size: 14px;
+
 }

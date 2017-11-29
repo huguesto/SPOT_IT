@@ -2,12 +2,15 @@ Select a Facebook's friend🤗  and discover his go-to spots.
 <% spots.each do |spot| %>
   <div class="friends">
     <div class="message">
-      <%= image_tag spot.user.facebook_picture_url %>
+      <%= image_tag spot.user.facebook_picture_url, class: "avatar-large" %>
       <div class="message-name">
         <h3><%= spot.user.first_name %></h3>
       </div>
       <div class="message-body">
-        <p><%= spot.inspect %></p>
+         <p class="placelink"><%= link_to spot.place.name, place_path(spot.place_id) %></p>
+        <!-- <p class="placelink"><%= spot.place.name %></p> -->
+        <p class= "placecomment"> "<%= spot.comment %>"</p>
+        <p class= "placedate"><%= spot.created_at.strftime("%d/%m/%Y") %></p>
       </div>
     </div>
   </div>
