@@ -7,6 +7,11 @@ class SpotsController < ApplicationController
     @spot = Spot.new
   end
 
+  def show
+    @spot = Spot.find(params[:id])
+    render layout: false
+  end
+
   def create
     #@spot = Spot.new(spot_params)????
     #@spot.place = Place.find(params[:place_id])????

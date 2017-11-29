@@ -12,14 +12,14 @@
         </div>
       <% else %>
         <% @place.spots.each do |spot| %>
-          <div class="col-xs-4 col-sm-4 col-md-4 text-center sliding" >
-            <div class="polaroid mislider">
-                <div class="photo" data-lightbox-gallery="photo_gallery" style="background-image: url('<%= cl_image_path spot.photo.path, width: 120, height: 100, :effect=>"art:daguerre", crop: :fill if spot.photo %>');">
-                </div>
-                <p><%= spot.comment %></p>
+          <% if spot.photo %>
+            <div class="col-xs-4">
+              <%= link_to spot_path(spot), data: { toggle: "modal", target: "#spot-show", backdrop: false } do %>
+                <%= cl_image_tag spot.photo.path, width: 120, height: 100, :effect=>"art:daguerre", crop: :fill  %>
+              <% end %>
             </div>
-          </div>
-       <% end %>
+          <% end %>
+        <% end %>
       <% end %>
     </div>
       <div class="infos">
@@ -32,9 +32,15 @@
 </div>
 
 
-
-<!-- #Pour chaque spot qui ont cette place_id
-#display la photo prise par l'user qui a crée ce spot
-#display le commentaire de l'user qui a crée ce spot
-#display le created_at
-( #display info de l'user avec facebook connect ) -->
+<div class="modal fade" id="spot-show" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+    </div>
+  </div>
+</div>

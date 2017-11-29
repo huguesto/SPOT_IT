@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   mount Attachinary::Engine => "/attachinary"
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-    
+
   root to: 'places#index'
   resources :places, only: [:show] do
     collection do
@@ -11,6 +11,6 @@ Rails.application.routes.draw do
     end
     resources :favorites, only: [:create]
   end
-  resources :spots, only: [:index, :new, :create]
+  resources :spots, only: [:index, :show, :new, :create]
   resources :favorites, only: [:index]
 end
