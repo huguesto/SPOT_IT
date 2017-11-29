@@ -14,12 +14,12 @@ box-shadow: 0 5px 1px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
 
   .connect {
   color: rgb(214, 231, 239);
+  font-weight: bolder;
   border: none;
   }
   .connect:hover {
-    color: rgb(15, 70, 94);
+    color: rgb(214, 231, 239);
     text-decoration: none;
-    font-weight: bolder;
     border: none;
   }
 }
