@@ -38,8 +38,10 @@ class User < ApplicationRecord
 
     facebook_friends.each do |friend_data|
       other = User.find_by(uid: friend_data["uid"])
-      self.friend_request(other)
-      other.accept_request(self)
+      if other
+        self.friend_request(other)
+        other.accept_request(self)
+      end
     end
   end
 end
