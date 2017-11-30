@@ -6,25 +6,28 @@
     <title>Spot it - Your go-to spots</title>
     <meta name="description" content="With Spot it, discover places from people you can rely on, people you like, people you trust.">
     <meta property="og:title" content="Spot it - Your go-to spots">
-    <meta property="og:image" content="facebook-card.jpg">
+    <meta property="og:image" content="Capture d’écran 2017-11-30 à 02.18.18.png">
     <meta property="og:description" content="With Spot it, discover places from people you can rely on, people you like, people you trust.">
     <meta property="og:site_name" content="Spot it"/>
     <link rel="icon" type="image/png" href="https://emojipedia-us.s3.amazonaws.com/thumbs/120/apple/114/round-pushpin_1f4cd.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/formstone/1.4.1/css/lightbox.css">
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
   <body class="<%= yield(:body_class) %>">
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
     <%= yield %>
     <%= render 'shared/footer' %>
+
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&language=fr&key=#{ENV['GOOGLE_API_SERVER_KEY']}" %>
     <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/markerclusterer/src/markerclusterer_compiled.js" %>
     <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js" %>
+
     <%= javascript_include_tag 'application' %>
+
     <%= cloudinary_js_config %>
     <%= yield(:after_js) %>
   </body>

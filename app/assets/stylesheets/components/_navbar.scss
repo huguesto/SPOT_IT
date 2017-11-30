@@ -25,7 +25,6 @@
 
 .category-pick {
   display: flex;
-
   width: 100%;
 }
 
@@ -131,3 +130,26 @@ input[type="radio"]:checked + label {
 .right-tab {
   border-left: 2px solid rgb(84, 115, 151);
 }
+
+.title {
+  font-family: Lobster Two;
+  color: rgb(214, 231, 239);
+  flex: center;
+  letter-spacing: 2px;
+}
+.close {
+  margin-right: -450%;
+
+}
+
+.close-nav {
+  margin-right: -700%;
+}
+
+.topmodal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+

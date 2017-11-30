@@ -13,6 +13,7 @@
     var map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 44.8405984, lng: -0.5854666},
       zoom: 15,
+
       // styles: [{stylers:[{hue:'#000000'},{saturation:120}]},{featureType:'road',elementType:'geometry',stylers:[{lightness:50},{visibility:'simplified'}]},{featureType:'road',elementType:'labels',stylers:[{visibility:'off'}]}]
 
     });
@@ -40,6 +41,7 @@
             $('#friend-spots').html(data.friend_spots);
             var handler = Gmaps.build('Google');
             handler.buildMap({ internal: { id: 'map' } }, function() {
+
               // markers = handler.addMarkers(markers_data);
               Gmaps.store = {} // Initialize storage
               Gmaps.store.markers = data.places.map(function(m) {
@@ -53,7 +55,7 @@
                       $('#place-show').html(place_html);
                       $('.place-show').toggleClass('place-show-open');
                       $(".place-show-toggle").click(function(){
-                        $('.place-show').toggleClass('place-show-open');
+                      $('.place-show').toggleClass('place-show-open');
                       })
                     }
                   })
