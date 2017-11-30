@@ -9,8 +9,8 @@
       <div class="message-body">
          <div class="placelink"><%= link_to spot.place.name, place_path(spot.place_id) %></div>
         <!-- <p class="placelink"><%= spot.place.name %></p> -->
-        <div class= "placecomment"> "<%= spot.comment %>"</div>
-        <div class= "placedate"><%= spot.created_at.strftime("%d/%m/%Y") %></div>
+        <div class= "placecomment"> "<%= spot.comment %>"   <%= spot.created_at.strftime("%d/%m/%Y") %></div>
+        <!-- <div class= "placedate"><%= spot.created_at.strftime("%d/%m/%Y") %></div> -->
       </div>
     </div>
   </div>
