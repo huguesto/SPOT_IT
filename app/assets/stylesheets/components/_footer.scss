@@ -46,6 +46,7 @@ box-shadow: 0 5px 1px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
   color:rgb(137, 181, 201);
   font-weight: lighter;
   border-width: 0px;
+  font-size: 18px;
 }
 .modal-footer {
   text-align: center;
@@ -58,16 +59,22 @@ box-shadow: 0 5px 1px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
   background: rgb(137, 181, 201);
   color: rgb(214, 231, 239);
   padding: 1.5%;
-  margin: 1.5%;
+  margin: 3.5%;
+}
+
+.signout {
+  color: rgb(137, 181, 201);
+  font-weight: lighter;
+  font-size: 15px;
+}
+.signout:hover {
+  text-decoration: none;
+  color: rgb(15, 70, 94);
 }
 .signin:hover {
   text-decoration: none;
   background: rgb(15, 70, 94);
   color: rgb(214, 231, 239);
-}
-.signout {
-  color: rgb(137, 181, 201);
-  font-weight: lighter;
 }
 
 .message {
@@ -118,16 +125,6 @@ box-shadow: 0 5px 1px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
   width: 50px;
   border-radius: 50%;
 }
-
-.placelink {
-  font-size: 14px;
-
-}
-.placecomment {
-  font-size: 14px;
-
-}
-.placedate {
-  font-size: 14px;
-
+a {
+  color: rgb(137, 181, 201);
 }
