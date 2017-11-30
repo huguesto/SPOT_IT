@@ -21,27 +21,24 @@
 
     <div class="modal-content">
 
-    <div class="topmodal">
-      <div class="modal-header">
-        <strong>Discover more spots !</strong>
-        <!-- <h5 class="modal-title" id="exampleModalLabel"></h5> -->
-        </div>
-        <div class="">
+      <div class="topmodal">
+        <div class="modal-header">
+          <div class="item-ghost"><%= "  " %></div>
+          <h5 class="modal-title" id="spotModalLabel">Discover more spots!</h5>
+          <!--<strong>Discover more spots !</strong> -->
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
       </div>
+    </div>
 
-        </button>
-      </div>
-
-      <div class="modal-body">
-        Let's find your friends go-to spots📍 and share yours with Facebook Connect.
-      </div>
-      <div class="modal-footer">
-        <!-- <% link_to "Sign out", destroy_user_session_path, class: "signout", method: "DELETE" %> -->
-        <a href="/users/auth/facebook" role="button" class="signin">Connect</a>
-      </div>
+    <div class="modal-body">
+      Let's find your friends go-to spots📍 and share yours with Facebook Connect.
+    </div>
+    <div class="modal-footer">
+      <!-- <% link_to "Sign out", destroy_user_session_path, class: "signout", method: "DELETE" %> -->
+      <a href="/users/auth/facebook" role="button" class="signin">Connect</a>
     </div>
   </div>
 </div>
@@ -50,16 +47,14 @@
 <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="topmodal">
-        <div class="modal-header">
-          <strong>Discover friends spots !</strong>
-        </div>
-        <div class="">
-          <!-- <h5 class="modal-title" id="exampleModalLabel"></h5> -->
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
+      <div class="modal-header">
+        <div class="item-ghost"><%= "  " %></div>
+        <h5 class="modal-title" id="spotModalLabel">Discover friends spots!</h5>
+        <!-- <strong>Discover friends spots !</strong> -->
+        <!-- <h5 class="modal-title" id="exampleModalLabel"></h5> -->
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
       <div class="modal-body" id="friend-spots"></div>
       <div class="modal-footer">
