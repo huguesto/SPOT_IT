@@ -5,9 +5,11 @@
   padding: 10px 20px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   z-index: 2;
   position: relative;
 }
+
  .form-control {
    background-color: rgb(214, 231, 239);
    color: rgb(137, 181, 201);
@@ -23,14 +25,15 @@
 
 .category-pick {
   display: flex;
-  background-color: rgb(137, 181, 201);
+  // background-color: rgb(137, 181, 201);
   width: 100%;
 }
 
 
 .fa {
   color: rgb(214, 231, 239);
-  padding-right: 23px;
+  padding-right: 5px;
+  padding-top: 5px;
 }
 
 
@@ -48,7 +51,7 @@
   position: absolute;
   width: 100%;
   padding: 20px;
-  top: 42px;
+  top: 65px;
   background: rgb(137, 181, 201);
   transform: translateY(-200%);
   transition: 300ms linear transform;
@@ -59,11 +62,12 @@
 .glyphicon-plus {
   z-index: 1;
   color: rgb(214, 231, 239);
+  padding-left: 5px;
+  padding-top: 6px;
+
 }
-.glyphicon-home {
-  z-index: 1;
-  color: rgb(214, 231, 239);
-}
+
+
 
 
 
@@ -101,7 +105,17 @@
     }
   }
 }
-
+.title {
+  a {
+  text-decoration: none;
+  font-family: Lobster Two;
+  font-weight: bold;
+  color: rgb(214, 231, 239);
+  flex: center;
+  font-size: 38px;
+  letter-spacing: 2px;
+ }
+}
 
 input[type="radio"] {
   display: none;
@@ -121,10 +135,25 @@ input[type="radio"]:checked + label {
   border-left: 2px solid rgb(15, 70, 94);
 }
 
-
 .title {
   font-family: Lobster Two;
   color: rgb(214, 231, 239);
   flex: center;
   letter-spacing: 2px;
 }
+.close {
+  margin-right: -450%;
+
+}
+
+.close-nav {
+  margin-right: -700%;
+}
+
+.topmodal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
