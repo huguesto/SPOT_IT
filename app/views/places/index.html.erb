@@ -55,7 +55,10 @@
                       $('#place-show').html(place_html);
                       $('.place-show').toggleClass('place-show-open');
                       $(".place-show-toggle").click(function(){
+                      $('.place-show').toggleClass('place-show-open');
+                      $(".place-show-toggle").click(function(){
                         $('.place-show').toggleClass('place-show-open');
+                        })
                       })
                     }
                   })
