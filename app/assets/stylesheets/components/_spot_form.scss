@@ -1,4 +1,3 @@
-
 .modal-content {
 background-color: white;
 }
@@ -8,11 +7,6 @@ background-color: white;
   justify-content: space-between;
   align-items: center;
   color: rgb(213, 231, 238);
-  height: 50%;
-display: flex;
-justify-content: center;
-flex-direction: row;
-
 }
 
 .modal-title {
@@ -28,6 +22,7 @@ flex-direction: row;
 .fileUpload {
   position: relative;
   margin-top: 20px;
+  background-color: #eaeaea;
   border: 1px dashed #dddbdb;
   display: block;
   margin-bottom: 20px;
@@ -35,7 +30,7 @@ flex-direction: row;
   background: url(https://focusgroups.org/wp-content/plugins/focusgroups/assets/images/holder-camera.png);
   background-size: contain;
   background-repeat: no-repeat;
-  background-color: white;
+  background-color: rgb(213, 231, 238);
   background-position: center;
   cursor: pointer;
   ul {
