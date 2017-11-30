@@ -7,11 +7,6 @@ class SpotsController < ApplicationController
     @spot = Spot.new
   end
 
-  def show
-    @spot = Spot.find(params[:id])
-    render layout: false
-  end
-
   def create
     #@spot = Spot.new(spot_params)????
     #@spot.place = Place.find(params[:place_id])????
@@ -20,6 +15,7 @@ class SpotsController < ApplicationController
     place_data = JSON.parse(URI.unescape(params[:spot][:place]))
     place = Place.find_by(place_id: place_data["place_id"]) || Place.create_from_data(place_data, params.dig(:spot, :category, :id))
     @spot = place.spots.new(spot_params)
+    @spot.user = current_user
     @spot.save
     redirect_to root_path
   end
@@ -27,6 +23,6 @@ class SpotsController < ApplicationController
   private
 
   def spot_params
-    params.require(:spot).permit(:comment, :photo)
+    params.require(:spot).permit(:comment, :photo, :user_id)
   end
 end

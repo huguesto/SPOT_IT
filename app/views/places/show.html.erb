@@ -8,15 +8,14 @@
     <div class="row cards-photos">
       <% if @place.spots.length == 0 %>
         <div class="col-xs-12 col-sm-6 col-md-4 text-center" >
+          <img class="smiley" src="https://emojipedia-us.s3.amazonaws.com/thumbs/160/apple/114/thinking-face_1f914.png" alt="">
           <p><%= "No spots yet for this place" %></p>
         </div>
       <% else %>
         <% @place.spots.each do |spot| %>
           <% if spot.photo %>
             <div class="col-xs-4">
-              <%= link_to spot_path(spot), data: { toggle: "modal", target: "#spot-show", backdrop: false } do %>
-                <%= cl_image_tag spot.photo.path, width: 120, height: 100, :effect=>"art:daguerre", crop: :fill  %>
-              <% end %>
+                <%= cl_image_tag spot.photo.path, class: "zoom", alt: spot.comment, data: { profile: spot.user.facebook_picture_url, author: spot.user.first_name }, width: 120, height: 100, crop: :fill %>
             </div>
           <% end %>
         <% end %>
@@ -32,15 +31,39 @@
 </div>
 
 
-<div class="modal fade" id="spot-show" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
+<div id="zoom-modal" class="zoom-modal">
+  <span class="zoom-close">&times;</span>
+  <div class="zoom-content">
+    <img class="zoom-modal-content" id="zoom-modal-img">
+    <div id="zoom-caption"></div>
+    <div class="zoom-author">
+      <img id="zoom-author-profile-pic">
+      <span id="zoom-author-name"></span>
     </div>
   </div>
 </div>
+
+<script>
+  var zoomables = document.querySelectorAll('.zoom');
+  var zoomModal = document.getElementById('zoom-modal');
+  var modalImg = document.getElementById('zoom-modal-img');
+  var modalCaption = document.getElementById('zoom-caption');
+  var modalAuthor = document.getElementById('zoom-author-name');
+  var modalPic = document.getElementById('zoom-author-profile-pic');
+
+  zoomables.forEach(function(element){
+    element.onclick = function() {
+      zoomModal.style.display = "flex";
+      modalImg.src = this.src;
+      modalCaption.innerHTML = this.alt;
+      modalAuthor.innerHTML = this.dataset.author;
+      modalPic.src = this.dataset.profile;
+
+    }
+  });
+
+  zoomModal.onclick = function() {
+    zoomModal.style.display = "none";
+  }
+
+</script>
