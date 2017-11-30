@@ -58,8 +58,8 @@
   bottom: 0;
   left: 0;
   right:0;
-  background: rgb(137, 181, 201);
-  color: rgb(214, 231, 239);
+  background: #f7f3f3;
+  color: rgb(84, 115, 151);
   transform: translateY(100%);
   transition: 300ms ease transform;
   &.place-show-open {
@@ -70,8 +70,10 @@
 .return-to-map {
   position: absolute;
   top: 5px;
-  right: 5px;
-
+  right: 1px;
+  .fa {
+  color:  rgb(84, 115, 151);
+  }
 }
 
 .row {
@@ -94,6 +96,7 @@
 
 img{
   max-width: 100%;
+  border-radius: 2px;
 }
 
 .zoom-modal {
