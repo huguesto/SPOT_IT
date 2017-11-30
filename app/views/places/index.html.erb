@@ -41,7 +41,6 @@
             $('#friend-spots').html(data.friend_spots);
             var handler = Gmaps.build('Google');
             handler.buildMap({ internal: { id: 'map' } }, function() {
-
               // markers = handler.addMarkers(markers_data);
               Gmaps.store = {} // Initialize storage
               Gmaps.store.markers = data.places.map(function(m) {
@@ -54,11 +53,11 @@
                     success: function(place_html){
                       $('#place-show').html(place_html);
                       $('.place-show').toggleClass('place-show-open');
-                      $(".place-show-toggle").click(function(){
-                      $('.place-show').toggleClass('place-show-open');
+                      // $(".place-show-toggle").click(function(){
+                      // $('.place-show').toggleClass('place-show-open');
                       $(".place-show-toggle").click(function(){
                         $('.place-show').toggleClass('place-show-open');
-                        })
+                        // })
                       })
                     }
                   })
