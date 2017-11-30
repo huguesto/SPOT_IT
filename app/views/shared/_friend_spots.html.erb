@@ -1,4 +1,4 @@
-Select a Facebook's friend🤗  and discover his go-to spots.
+
 <% spots.each do |spot| %>
   <div class="friends">
     <div class="message">
@@ -9,8 +9,8 @@ Select a Facebook's friend🤗  and discover his go-to spots.
       <div class="message-body">
          <p class="placelink"><%= link_to spot.place.name, place_path(spot.place_id) %></p>
         <!-- <p class="placelink"><%= spot.place.name %></p> -->
-        <p class= "placecomment"> "<%= spot.comment %>"</p>
-        <p class= "placedate"><%= spot.created_at.strftime("%d/%m/%Y") %></p>
+        <p class= "placecomment"> "<%= spot.comment %>" <%= spot.created_at.strftime("%d/%m/%Y") %></p>
+        <!-- <p class= "placedate"><%= spot.created_at.strftime("%d/%m/%Y") %></p> -->
       </div>
     </div>
   </div>

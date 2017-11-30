@@ -3,3 +3,10 @@
   width: 100%;
   height: calc(100vh - 45px);
 }
+
+.gmnoprint {
+  visibility: hidden;
+}
+.gm-fullscreen-control {
+    visibility: hidden;
+}
