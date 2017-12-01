@@ -37,7 +37,7 @@ class User < ApplicationRecord
     facebook_friends = graph.get_connections('me', 'friends')
 
     facebook_friends.each do |friend_data|
-      other = User.find_by(uid: friend_data["uid"])
+      other = User.find_by(uid: friend_data["id"])
       if other
         self.friend_request(other)
         other.accept_request(self)
