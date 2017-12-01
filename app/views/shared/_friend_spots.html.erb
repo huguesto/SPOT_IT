@@ -1,3 +1,4 @@
+<h6>Last spots of my friends</h6>
 <% spots.each do |spot| %>
   <div class="friends">
     <div class="message">
@@ -7,7 +8,7 @@
       </div>
       <div class="message-body">
         <div class="placelink">
-          <%= link_to spot.place.name, place_path(spot.place_id) %>
+          <%= link_to spot.place.name, place_path(spot.place_id), class: "open-modal-show-friend" %>
         </div>
         <div class= "placecomment">
           "<%= spot.comment %>"
@@ -17,3 +18,12 @@
     </div>
   </div>
 <%end%>
+
+<script type="text/javascript">
+  $('.open-modal-show-friend').click(function(e){
+    e.preventDefault();
+    var url = $(this).attr("href");
+    openModalShow(url);
+    $('#exampleModal2').modal("hide");
+  });
+</script>

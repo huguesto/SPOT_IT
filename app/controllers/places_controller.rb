@@ -17,14 +17,11 @@ class PlacesController < ApplicationController
       end
     end
     if current_user
-      # @friend_spots = Spot.where(user: current_user.friends, place: places.map(&:id)).order(created_at: :desc).limit(10)
-      # @friend_spots = Spot.coco(current_user, places)
       @friend_spots = Spot.friends_spots(current_user).nearby(places)
-      friend_spots_html = render_to_string(partial: "shared/friend_spots", locals: { spots: @friend_spots})
     else
-      # @friend_spots = Spot.where(place: places.map(&:id)).order(created_at: :desc).limit(10)
       @friend_spots = Spot.nearby(places)
     end
+    friend_spots_html = render_to_string(partial: "shared/friend_spots", locals: { spots: @friend_spots })
 
     @places = places.map do |place|
       {
