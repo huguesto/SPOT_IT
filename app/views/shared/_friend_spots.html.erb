@@ -2,9 +2,9 @@
 <% spots.each do |spot| %>
   <div class="friends">
     <div class="message">
-      <%= image_tag spot.user.facebook_picture_url, class: "avatar-large" if spot.user %>
+      <%= image_tag((spot.user.try(:facebook_picture_url) || "http://www.skywardimaging.com/wp-content/uploads/2015/11/default-user-image.png"), class: "avatar-large") %>
       <div class="message-name">
-        <h3><%= spot.user.first_name %></h3>
+        <h3><%= spot.user.try(:first_name) %></h3>
       </div>
       <div class="message-body">
         <div class="placelink">
