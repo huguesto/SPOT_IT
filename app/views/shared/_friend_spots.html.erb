@@ -2,7 +2,7 @@
 <% spots.each do |spot| %>
   <div class="friends">
     <div class="message">
-      <%= image_tag spot.user.facebook_picture_url, class: "avatar-large" %>
+      <%= image_tag spot.user.facebook_picture_url, class: "avatar-large" if spot.user %>
       <div class="message-name">
         <h3><%= spot.user.first_name %></h3>
       </div>
