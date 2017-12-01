@@ -15,7 +15,7 @@
         <% @place.spots.each do |spot| %>
           <% if spot.photo %>
             <div class="col-xs-4">
-                <%= cl_image_tag spot.photo.path, class: "zoom", alt: spot.comment, data: { profile: (spot.user.try(:facebook_picture_url) || "http://www.skywardimaging.com/wp-content/uploads/2015/11/default-user-image.png"), author: (spot.user.first_name || "anonyme") }, width: 120, height: 100, crop: :fill %>
+                <%= cl_image_tag spot.photo.path, class: "zoom", alt: spot.comment, data: { profile: (spot.user.try(:facebook_picture_url) || "http://www.skywardimaging.com/wp-content/uploads/2015/11/default-user-image.png"), author: (spot.user.try(:first_name) || "anonyme") }, width: 120, height: 100, crop: :fill %>
             </div>
           <% end %>
         <% end %>
